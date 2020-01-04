@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "PORT=3001 node index.js",
-    "start": "node index.js",
-    "build": "webapp/node_modules/react-scripts/scripts/build.js build"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
