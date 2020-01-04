@@ -8,7 +8,6 @@ app.get('/getPdf', (req, res) => {
 
     puppeteerToPdf({ url });
 
-    res.setHeader('Access-Control-Allow-Origin', '*');
     res.contentType('application/pdf');
     res.download('out.pdf');
 });

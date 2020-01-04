@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "PORT=3001 node index.js",
     "start": "node index.js",
-    "test": ""
+    "build": "webapp/node_modules/react-scripts/scripts/build.js build"
   },
   "repository": {
     "type": "git",
