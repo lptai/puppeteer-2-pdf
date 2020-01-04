@@ -6,6 +6,8 @@ cache:
     - node_modules
 script:
     - echo "skipping tests"
+    - cd webapp
+    - npm run build
 deploy:
   provider: heroku
   api_key: ${api_key}
