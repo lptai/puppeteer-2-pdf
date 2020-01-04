@@ -7,6 +7,7 @@ cache:
 script:
     - echo "skipping tests"
     - cd webapp
+    - npm ci
     - npm run build
 deploy:
   provider: heroku
