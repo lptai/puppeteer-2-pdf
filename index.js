@@ -21,4 +21,8 @@ app.get('/getPdf', (req, res) => {
     res.download('out.pdf');
 });
 
+app.get('/hello', (req, res) => {
+    res.send('hello')
+});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
