@@ -1,0 +1,27 @@
+{
+  "name": "puppeteer-2-pdf",
+  "version": "0.1.0",
+  "description": "A simple tool to convert html to pdf",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lptai/puppeteer-2-pdf.git"
+  },
+  "keywords": [
+    "pupperteer"
+  ],
+  "author": "taile",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lptai/puppeteer-2-pdf/issues"
+  },
+  "homepage": "https://github.com/lptai/puppeteer-2-pdf#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "puppeteer": "^2.0.0"
+  }
+}
