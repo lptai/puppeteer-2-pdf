@@ -2,16 +2,13 @@ language: node_js
 node_js:
   - 'stable'
 cache:
-  yarn: true
   directories:
     - node_modules
-before_script:
-    - cd webapp
-    - yarn install
-    - yarn build
-    - cd ..
 script:
-    - echo "skipping tests"
+  - cd webapp
+  - yarn install
+  - yarn build
+  - cd ..
 deploy:
   provider: heroku
   api_key: ${api_key}
