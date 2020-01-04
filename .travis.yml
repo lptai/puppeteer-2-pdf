@@ -9,6 +9,7 @@ script:
     - cd webapp
     - yarn install
     - yarn build
+    - cd ..
 deploy:
   provider: heroku
   api_key: ${api_key}
