@@ -1,7 +1,16 @@
-const express = require('express')
-const app = express()
-const port = process.env.PORT || 80
+const express = require('express');
+const puppeteerToPdf = require('./src/puppeteer-to-pdf');
+const app = express();
+const port = process.env.PORT || 80;
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/getPdf', (req, res) => {
+    const { url } = req.query;
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+    puppeteerToPdf({ url });
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.contentType('application/pdf');
+    res.download('out.pdf');
+});
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));

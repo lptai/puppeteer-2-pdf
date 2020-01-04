@@ -4,6 +4,7 @@
   "description": "A simple tool to convert html to pdf",
   "main": "index.js",
   "scripts": {
+    "dev": "PORT=3001 node index.js",
     "start": "node index.js",
     "test": ""
   },
