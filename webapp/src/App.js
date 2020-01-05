@@ -1,6 +1,6 @@
 import React, { useState, useCallback, Fragment } from 'react';
 import styled from 'styled-components';
-import { Input, Button } from 'antd';
+import { Input, Button, message } from 'antd';
 import axios from 'axios';
 import 'antd/dist/antd.css';
 import './App.css';
@@ -28,11 +28,16 @@ const Link = styled.a`
 `;
 
 const API = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : '';
+message.config({
+    top: 50,
+    maxCount: 1,
+  });
 
 function App() {
     const [links, setLinks] = useState([]);
     const [url, setUrl] = useState();
     const [isSending, setIsSending] = useState(false);
+
     const handleConverToPdf = useCallback(
         async e => {
             if (isSending || !url) {
@@ -41,16 +46,11 @@ function App() {
             e.preventDefault();
 
             setIsSending(true);
+            message.loading('Processing....');
 
             // call api
             await axios
-                .get(`${API}/getPdf?url=${url}`, {
-                    responseType: 'arraybuffer',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Accept: 'application/pdf',
-                    },
-                })
+                .get(`${API}/getPdf?url=${url}`)
                 .then(response => {
                     let blob = new Blob([response.data], { type: 'application/pdf' });
                     const link = {};
@@ -60,10 +60,12 @@ function App() {
 
                     setLinks(old => [...old, link]);
                     setUrl('');
+                    message.success('Yay !!! it\' done. Click a link below to download');
                 })
                 .catch(e => {
-                    console.log(e);
+                    console.log(e.response);
                     setIsSending(false);
+                    message.error('Invalid URL or it is private page');
                 });
 
             setIsSending(false);
@@ -88,7 +90,10 @@ function App() {
             <Box>
                 {links.map((link, idx) => (
                     <Fragment>
-                        <Link key={`${idx}-link`} href={link.href} download={`${link.name}-${idx}.pdf`}>
+                        <Link
+                            key={`${idx}-link`}
+                            href={link.href}
+                            download={`${link.name}-${idx}.pdf`}>
                             {link.url}
                         </Link>
                     </Fragment>
