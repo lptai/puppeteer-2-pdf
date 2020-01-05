@@ -1,6 +1,9 @@
 language: node_js
 node_js:
   - 'stable'
+cache:
+  directories:
+    - node_modules
 before_script:
   - rm -rf build
 script:
@@ -10,4 +13,6 @@ script:
   - cd ..
 deploy:
   provider: heroku
+  skip_cleanup: true
+  local_dir: build
   api_key: ${api_key}
