@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "PORT=3001 node index.js",
+    "build": "cd webapp && yarn build && cd ..",
     "start": "node index.js"
   },
   "repository": {

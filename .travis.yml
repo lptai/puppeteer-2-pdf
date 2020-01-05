@@ -8,7 +8,6 @@ cache:
 before_script:
   - cd webapp
   - yarn install
-  - yarn build
   - cd ..
 deploy:
   provider: heroku
