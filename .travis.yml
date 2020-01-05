@@ -5,12 +5,10 @@ cache:
   directories:
     - node_modules
     - webapp/node_modules
-before_script:
+script:
   - cd webapp
   - yarn install
   - cd ..
-script:
-  - echo "nothing"
 deploy:
   provider: heroku
   skip_cleanup: true
