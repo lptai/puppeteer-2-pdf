@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const puppeteerToPdf = require('./src/puppeteer-to-pdf');
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 80;
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '/build')));
