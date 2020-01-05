@@ -4,9 +4,8 @@ node_js:
 cache:
   directories:
     - node_modules
+    - webapp/node_modules
 before_script:
-  - rm -rf build
-script:
   - cd webapp
   - yarn install
   - yarn build
