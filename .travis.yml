@@ -9,6 +9,8 @@ before_script:
   - cd webapp
   - yarn install
   - cd ..
+script:
+  - echo "nothing"
 deploy:
   provider: heroku
   skip_cleanup: true
