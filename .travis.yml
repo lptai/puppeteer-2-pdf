@@ -6,9 +6,7 @@ cache:
     - node_modules
     - webapp/node_modules
 script:
-  - cd webapp
-  - yarn install
-  - cd ..
+  - yarn build
 deploy:
   provider: heroku
   skip_cleanup: true
