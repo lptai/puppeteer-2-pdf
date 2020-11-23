@@ -50,7 +50,7 @@ function App() {
 
             // call api
             await axios
-                .get(`${API}/getPdf?url=${url}`)
+                .get(`${API}/getPdf?url=${url}`, { responseType: 'blob' })
                 .then(response => {
                     let blob = new Blob([response.data], { type: 'application/pdf' });
                     const link = {};
